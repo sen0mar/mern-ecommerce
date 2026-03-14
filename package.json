@@ -1,0 +1,26 @@
+{
+  "name": "vendr",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "eCommerce App built with MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon backend/server.js",
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sen0mar/mern-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sen0mar/mern-ecommerce/issues"
+  },
+  "homepage": "https://github.com/sen0mar/mern-ecommerce#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "nodemon": "^3.1.14"
+  }
+}
