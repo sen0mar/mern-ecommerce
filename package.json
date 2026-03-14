@@ -5,8 +5,10 @@
   "description": "eCommerce App built with MERN stack",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon backend/server.js",
-    "start": "node backend/server.js"
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm run dev --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,11 @@
   },
   "homepage": "https://github.com/sen0mar/mern-ecommerce#readme",
   "dependencies": {
-    "express": "^5.2.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "dotenv": "^17.3.1",
     "nodemon": "^3.1.14"
   }
 }
