@@ -8,8 +8,8 @@ import {
   Button,
   ListGroupItem,
 } from "react-bootstrap";
-import products from "../../products";
-import Rating from "../../components/Rating";
+import products from "../products";
+import Rating from "../components/Rating";
 
 const ProductPage = () => {
   // get product id from URL

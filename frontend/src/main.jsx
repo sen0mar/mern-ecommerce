@@ -4,8 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import "./assets/styles/bootstrap.custom.css";
 import "./assets/styles/index.css";
 import App from "./App.jsx";
-import Home from "./assets/pages/Home.jsx";
-import ProductPage from "./assets/pages/ProductPage.jsx";
+import Home from "./pages/Home.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
 
 const router = createBrowserRouter([
   {
