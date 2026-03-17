@@ -1,4 +1,5 @@
 import { PRODUCTS_URL } from "../constants";
+// apiSlice deals with endpoints that have async requests. For other slices use createSlice
 import { apiSlice } from "./apiSlice";
 
 export const productsApiSlice = apiSlice.injectEndpoints({
