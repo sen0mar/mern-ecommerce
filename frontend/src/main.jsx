@@ -8,6 +8,7 @@ import "./assets/styles/index.css";
 import App from "./App.jsx";
 import Home from "./pages/Home.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
+import CartPage from "./pages/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: "/product/:id", element: <ProductPage /> },
+      { path: "/cart", element: <CartPage /> },
     ],
   },
 ]);
