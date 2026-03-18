@@ -33,9 +33,7 @@ userSchema.methods.matchPassword = async function (enteredPassword) {
 // Hash password before saving in database
 userSchema.pre("save", async function (next) {
   // If saving some user data without the password, do nothing
-  if (!this.isModified("password")) {
-    next();
-  }
+  if (!this.isModified("password")) return;
 
   // Hash password
   this.password = await bcrypt.hash(this.password, 10);

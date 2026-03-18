@@ -96,7 +96,30 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route PUT /api/users/profile (use token for updating profile, not id. User's data is encoded in the jsonwebtoken)
 // @access Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-  res.send("update user profile");
+  const user = await User.findById(req.user._id);
+
+  if (user) {
+    // set the name of logged in user to the req.body. If no name was given, keep what's in the database
+    user.name = req.body.name || user.name;
+    user.email = req.body.email || user.email;
+
+    // Change hashed password only if it's being updated
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      _id: updatedUser._id,
+      name: updatedUser.name,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
 });
 
 // ADMIN //
