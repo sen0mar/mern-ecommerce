@@ -25,9 +25,21 @@ const userSchema = new mongoose.Schema(
   { timestamps: true },
 );
 
+// Check is password matches when logging in
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
+
+// Hash password before saving in database
+userSchema.pre("save", async function (next) {
+  // If saving some user data without the password, do nothing
+  if (!this.isModified("password")) {
+    next();
+  }
+
+  // Hash password
+  this.password = await bcrypt.hash(this.password, 10);
+});
 
 const User = mongoose.model("User", userSchema);
 
