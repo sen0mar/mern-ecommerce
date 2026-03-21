@@ -13,6 +13,7 @@ import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
 import ShippingPage from "./pages/ShippingPage.jsx";
 import PrivateRoute from "./components/PrivateRoute.jsx";
+import PaymentPage from "./pages/PaymentPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ShippingPage />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/payment",
+        element: (
+          <PrivateRoute>
+            <PaymentPage />
           </PrivateRoute>
         ),
       },
