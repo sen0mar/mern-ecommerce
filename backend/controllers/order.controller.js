@@ -26,6 +26,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
       orderItems: orderItems.map((o) => ({
         ...o,
         product: o._id,
+        quantity: o.qty,
         _id: undefined,
       })),
       user: req.user._id,
@@ -36,11 +37,11 @@ const addOrderItems = asyncHandler(async (req, res) => {
       shippingPrice,
       totalPrice,
     });
+
+    const createdOrder = await order.save();
+
+    res.status(201).json(createdOrder);
   }
-
-  const createOrder = await order.save();
-
-  res.status(201).json(createOrder);
 });
 
 // @desc Get logged in users orders
