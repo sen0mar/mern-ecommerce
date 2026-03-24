@@ -17,6 +17,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import PaymentPage from "./pages/PaymentPage.jsx";
 import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
 import OrderPage from "./pages/OrderPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,15 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <OrderPage />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/profile",
+        element: (
+          <PrivateRoute>
+            <ProfilePage />
           </PrivateRoute>
         ),
       },
