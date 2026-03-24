@@ -57,9 +57,7 @@ const OrderPage = () => {
         paypalDispatch({ type: "setLoadingStatus", value: "pending" });
       };
       if (order && !order.isPaid) {
-        if (!window.paypal) {
-          loadPayPalScript();
-        }
+        loadPayPalScript();
       }
     }
   }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal]);
@@ -92,7 +90,7 @@ const OrderPage = () => {
         purchase_units: [
           {
             amount: {
-              value: order.totalPrice,
+              value: order.totalPrice.toFixed(2),
             },
           },
         ],
@@ -215,7 +213,7 @@ const OrderPage = () => {
                       </Button> */}
                       <div>
                         <PayPalButtons
-                          crateOrder={createOrder}
+                          createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}
                         ></PayPalButtons>
