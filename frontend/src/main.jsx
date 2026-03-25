@@ -19,7 +19,7 @@ import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
 import OrderPage from "./pages/OrderPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
 import AdminRoute from "./components/AdminRoute.jsx";
-import OrderListScreen from "./pages/admin/OrderListScreen.jsx";
+import OrderListPage from "./pages/admin/OrderListPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
         path: "/admin/orderlist",
         element: (
           <AdminRoute>
-            <OrderListScreen />
+            <OrderListPage />
           </AdminRoute>
         ),
       },
