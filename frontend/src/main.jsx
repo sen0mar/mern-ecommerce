@@ -18,6 +18,8 @@ import PaymentPage from "./pages/PaymentPage.jsx";
 import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
 import OrderPage from "./pages/OrderPage.jsx";
 import ProfilePage from "./pages/ProfilePage.jsx";
+import AdminRoute from "./components/AdminRoute.jsx";
+import OrderListScreen from "./pages/admin/OrderListScreen.jsx";
 
 const router = createBrowserRouter([
   {
@@ -72,6 +74,15 @@ const router = createBrowserRouter([
           <PrivateRoute>
             <ProfilePage />
           </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/admin/orderlist",
+        element: (
+          <AdminRoute>
+            <OrderListScreen />
+          </AdminRoute>
         ),
       },
     ],
