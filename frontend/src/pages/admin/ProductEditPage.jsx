@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import {
   useUpdateProductMutation,
   useGetProductDetailsQuery,
+  useUploadProductImageMutation,
 } from "../../slices/productsApiSlice";
 
 const ProductEditPage = () => {
@@ -37,6 +38,9 @@ const ProductEditPage = () => {
 
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
+
+  const [uploadProductImage, { isLoading: loadingUpload }] =
+    useUploadProductImageMutation();
 
   const navigate = useNavigate();
 
@@ -76,6 +80,19 @@ const ProductEditPage = () => {
     }
   };
 
+  const handleUploadFile = async (e) => {
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
+
+    try {
+      const res = await uploadProductImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
+    } catch (err) {
+      toast.error(err?.data?.message || err.error);
+    }
+  };
+
   return (
     <>
       <Link to="/admin/productList" className="btn btn-light my-3">
@@ -102,7 +119,21 @@ const ProductEditPage = () => {
               ></FormControl>
             </FormGroup>
 
-            {/* Image Input Placeholder */}
+            <FormGroup controlId="brand" className="my-2">
+              <FormLabel>Image</FormLabel>
+              <FormControl
+                type="text"
+                placeholder="Enter image url"
+                value={image}
+                onChange={(e) => setImage}
+              ></FormControl>
+
+              <FormControl
+                type="file"
+                label="Choose file"
+                onChange={handleUploadFile}
+              ></FormControl>
+            </FormGroup>
 
             <FormGroup controlId="price" className="my-2">
               <FormLabel>Price</FormLabel>
