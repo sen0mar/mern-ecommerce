@@ -101,6 +101,15 @@ const router = createBrowserRouter([
       },
 
       {
+        path: "/admin/productlist/:pageNumber",
+        element: (
+          <AdminRoute>
+            <ProductListPage />
+          </AdminRoute>
+        ),
+      },
+
+      {
         path: "/admin/product/:id/edit",
         element: (
           <AdminRoute>
