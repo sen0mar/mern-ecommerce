@@ -143,16 +143,16 @@ const ProductEditPage = () => {
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               ></FormControl>
+            </FormGroup>
 
-              <FormGroup controlId="brand" className="my-2">
-                <FormLabel>Brand</FormLabel>
-                <FormControl
-                  type="text"
-                  placeholder="Brand"
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
-                ></FormControl>
-              </FormGroup>
+            <FormGroup controlId="brand" className="my-2">
+              <FormLabel>Brand</FormLabel>
+              <FormControl
+                type="text"
+                placeholder="Brand"
+                value={brand}
+                onChange={(e) => setBrand(e.target.value)}
+              ></FormControl>
             </FormGroup>
 
             <FormGroup controlId="countInStock" className="my-2">

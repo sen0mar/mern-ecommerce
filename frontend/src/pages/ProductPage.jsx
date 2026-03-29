@@ -23,6 +23,7 @@ import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Rating from "../components/Rating";
+import Meta from "../components/Meta";
 
 const ProductPage = () => {
   const [qty, setQty] = useState(1);
@@ -85,6 +86,7 @@ const ProductPage = () => {
         </Message>
       ) : (
         <>
+          <Meta title={product.name} />
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
